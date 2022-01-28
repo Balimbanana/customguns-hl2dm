@@ -566,6 +566,7 @@ public Action OnDeath(Handle event, const char[] name, bool dontBroadcast)
 			ClearArray(inventoryAmmoType[client]);
 		}
 	}
+	return Plugin_Continue;
 }
 
 public Action tGiveCustomGun(Handle timer, any userid)
@@ -582,6 +583,7 @@ public Action tGiveCustomGun(Handle timer, any userid)
 			giveCustomGun(client);
 		}
 	}
+	return Plugin_Continue;
 }
 
 /*
@@ -744,4 +746,5 @@ public Action OnPlayerRunCmd(client, &buttons, &impulse, float vel[3], float ang
 		// check scope
 		ScopeThink(client, buttons, gunIndex, open[client]);
 	}
+	return Plugin_Continue;
 }

@@ -29,11 +29,11 @@ stock void addWeaponAmmo(int client, int clip, char[] weapon = ""){
 			return;
 		}
 	}
-	SetEntProp(gun, Prop_Send, "m_iClip1", GetEntProp(gun, Prop_send, "m_iClip1")+clip);
+	SetEntProp(gun, Prop_Send, "m_iClip1", GetEntProp(gun, Prop_Send, "m_iClip1")+clip);
 }
 
 stock int getWeaponAmmo(int client){
-	return GetEntProp(GetEntPropEnt(client, Prop_Data, "m_hActiveWeapon"), Prop_send, "m_iClip1");
+	return GetEntProp(GetEntPropEnt(client, Prop_Data, "m_hActiveWeapon"), Prop_Send, "m_iClip1");
 }
 
 /**
@@ -271,7 +271,7 @@ stock void Tools_AddViewKick(int client, float scale, float maxVerticleKickAngle
 stock void Tools_ViewPunchReset(int client, float tolerance){
 	if ( tolerance != 0 )
 	{
-		tolerance *= tolerance;	// square
+		tolerance = tolerance*tolerance;	// square
 		float m_vecPunchAngleVel[3]; GetEntPropVector(client, Prop_Send, "m_vecPunchAngleVel", m_vecPunchAngleVel);
 		float m_vecPunchAngle[3]; GetEntPropVector(client, Prop_Send, "m_vecPunchAngle", m_vecPunchAngle);
 		float check = GetVectorLength(m_vecPunchAngleVel, true) + GetVectorLength(m_vecPunchAngleVel, true);
@@ -313,7 +313,7 @@ stock void Tools_ViewPunch(int client, float angleOffset[3]){
 	SetEntPropVector(client, Prop_Send, "m_vecPunchAngleVel", m_vecPunchAngleVel);
 }
 
-stock void TE_SetupShotgunShot(float[3] origin, float[3] vecDir, int ammoID, int seed, int shots, int player, float spread, bool doImpacts = true, bool doTracers = true){
+stock void TE_SetupShotgunShot(float origin[3], float vecDir[3], int ammoID, int seed, int shots, int player, float spread, bool doImpacts = true, bool doTracers = true){
 	TE_Start("Shotgun Shot");
 	TE_WriteVector("m_vecOrigin", origin);
 	TE_WriteVector("m_vecDir", vecDir);
@@ -326,7 +326,7 @@ stock void TE_SetupShotgunShot(float[3] origin, float[3] vecDir, int ammoID, int
 	TE_WriteNum("m_bDoTracers", doTracers);
 }
 
-stock void TE_SetupSpriteSpray(float[3] origin, float[3] vecDir, float[3] size, int modelIndex, int random, int count, float life, int flags){
+stock void TE_SetupSpriteSpray(float origin[3], float vecDir[3], float size[3], int modelIndex, int random, int count, float life, int flags){
 	TE_Start("breakmodel");
 	TE_WriteVector("m_vecOrigin", origin);
 	TE_WriteFloat("m_angRotation[0]", 0.0);

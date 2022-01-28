@@ -78,6 +78,7 @@ public OnWeaponEquipPost(client, weapon)
 public Action vmSwapDelay(Handle timer, any data){
 	if(IsValidEntity(data))
 		SDKCall(CALL_SendWeaponAnim, data, ACT_VM_DRAW);
+	return Plugin_Handled;
 }
 
 // int CBaseCombatWeapon::GetDefaultClip1( void )

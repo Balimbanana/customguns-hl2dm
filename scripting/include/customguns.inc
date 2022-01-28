@@ -76,7 +76,7 @@ native bool CG_GiveGun(int client, const char[] classname, bool ignoreAdminLevel
  *
  * @return					entity index or -1
  */
-native int CG_SpawnGun(const char[] classname, float[3] origin);
+native int CG_SpawnGun(const char[] classname, float origin[3]);
 
 /**
  * Clears player's inventory

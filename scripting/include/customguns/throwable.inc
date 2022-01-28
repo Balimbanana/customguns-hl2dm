@@ -485,21 +485,25 @@ public Action startFire(Handle timer, any entref){
 		
 		AcceptEntityInput(entref, "start");
 	}
+	return Plugin_Handled;
 }
 
 public Action stopBurningSound(Handle timer, any entref){
 	if(IsValidEntity(entref)){
 		EmitSoundToAll("common/null.wav", entref, SNDCHAN_BODY, 0);
 	}
+	return Plugin_Handled;
 }
 public Action makeDisappear(Handle timer, any entref){
 	if(IsValidEntity(entref)){
 		SetEntityRenderFx(entref, RENDERFX_FADE_FAST);
 		CreateTimer(2.0, delayedKill, entref);
 	}
+	return Plugin_Handled;
 }
 public Action stopBurnTouch(Handle timer, any entref){
 	if(IsValidEntity(entref)){
 		SDKUnhook(entref, SDKHook_TouchPost, BurnTouch);
 	}
+	return Plugin_Handled;
 }

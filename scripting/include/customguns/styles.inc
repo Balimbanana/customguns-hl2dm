@@ -190,4 +190,5 @@ public int StyleMenuHandler(Menu menu, MenuAction action, int param1, int param2
 	{
 		delete menu;
 	}
+	return 0;
 }

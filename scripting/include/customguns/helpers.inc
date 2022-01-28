@@ -436,18 +436,21 @@ public Action stopSound(Handle timer, any data) {
 	if (IsValidEntity(data)) {
 		SDKCall(CALL_StopWeaponSound, data, SINGLE);
 	}
+	return Plugin_Handled;
 }
 
 public Action deploySound(Handle timer, any data) {
 	if (IsValidEntity(data)) {
 		SDKCall(CALL_WeaponSound, data, DEPLOY, 0.0);
 	}
+	return Plugin_Handled;
 }
 
 public Action delayedKill(Handle timer, any ent) {
 	if (IsValidEntity(ent)) {
 		AcceptEntityInput(ent, "kill");
 	}
+	return Plugin_Handled;
 }
 
 /////////////
