@@ -42,7 +42,7 @@ public void OnPluginStart()
 public void OnMapStart()
 {
 	//Loop:
-	for(int Entity = GetMaxClients() + 1; Entity < 2047; Entity++)
+	for(int Entity = MaxClients + 1; Entity < 2047; Entity++)
 	{
 
 		BoltOwner[Entity] = -1;
@@ -91,7 +91,7 @@ public void OnGameFrame()
 {
 
 	//Loop:
-	for(int Entity = GetMaxClients() + 1; Entity < 2047; Entity++)
+	for(int Entity = MaxClients + 1; Entity < 2047; Entity++)
 	{
 
 		if(IsValidEdict(Entity))

@@ -3,7 +3,8 @@ Sourcemod plugin that adds custom weapons to Half life 2: Deathmatch
 
 Requirements
 ---------
-[Metamod](http://www.metamodsource.net/) and [Sourcemod](http://www.sourcemod.net) 1.11-6837 at least 
+[Metamod](http://www.metamodsource.net/) and [Sourcemod](http://www.sourcemod.net) 1.10-6528
+[DHooks](https://forums.alliedmods.net/showpost.php?p=2588686&postcount=589) 2.2.0-detours17-sm110
 
 Getting started
 ---------

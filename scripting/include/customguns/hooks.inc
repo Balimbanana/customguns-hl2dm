@@ -398,6 +398,7 @@ public MRESReturn ItemPostFramePost(int weapon) {
 	if (IsPlayer(client)) {
 		if (firing[client] && GetEntPropFloat(weapon, Prop_Data, "m_fFireDuration") == 0.0) {
 			CreateTimer(0.0, stopSound, EntIndexToEntRef(weapon));
+			SDKCall(CALL_StopWeaponSound, weapon, SINGLE);
 			firing[client] = false;
 			nextFireSound[client] = 0.0;
 		}
@@ -488,6 +489,7 @@ public MRESReturn Holster(int weapon, Handle hReturn, Handle hParams) {
 		{
 			if (firing[client] && GetArrayCell(gunFireLoopFix, index)) {
 				CreateTimer(0.0, stopSound, EntIndexToEntRef(weapon));
+				SDKCall(CALL_StopWeaponSound, weapon, SINGLE);
 				firing[client] = false;
 				nextFireSound[client] = 0.0;
 			}
